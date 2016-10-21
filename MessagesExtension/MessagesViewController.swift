@@ -11,6 +11,11 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    @IBOutlet weak var StartGame: UIButton!
+    @IBAction func ClickStart(_ sender: AnyObject) {
+
+        requestPresentationStyle(.expanded)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

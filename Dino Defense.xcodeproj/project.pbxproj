@@ -405,6 +405,7 @@
 				681906941DBAA94600608D56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		681906961DBAA94600608D56 /* Build configuration list for PBXNativeTarget "Dino Defense" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +414,7 @@
 				681906981DBAA94600608D56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
