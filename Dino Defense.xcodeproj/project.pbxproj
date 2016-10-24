@@ -13,6 +13,8 @@
 		681906891DBAA94600608D56 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681906881DBAA94600608D56 /* MessagesViewController.swift */; };
 		6819068C1DBAA94600608D56 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6819068A1DBAA94600608D56 /* MainInterface.storyboard */; };
 		6819068E1DBAA94600608D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6819068D1DBAA94600608D56 /* Assets.xcassets */; };
+		6819069A1DBAB0E900608D56 /* MapTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 681906991DBAB0E900608D56 /* MapTileSet.sks */; };
+		686362E11DBE9E22001D5700 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 686362E01DBE9E22001D5700 /* MapScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		6819068B1DBAA94600608D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		6819068D1DBAA94600608D56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6819068F1DBAA94600608D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		681906991DBAB0E900608D56 /* MapTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapTileSet.sks; sourceTree = "<group>"; };
+		686362E01DBE9E22001D5700 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 			children = (
 				681906881DBAA94600608D56 /* MessagesViewController.swift */,
 				6819068A1DBAA94600608D56 /* MainInterface.storyboard */,
+				681906991DBAB0E900608D56 /* MapTileSet.sks */,
+				686362E01DBE9E22001D5700 /* MapScene.sks */,
 				6819068D1DBAA94600608D56 /* Assets.xcassets */,
 				6819068F1DBAA94600608D56 /* Info.plist */,
 			);
@@ -201,8 +207,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6819069A1DBAB0E900608D56 /* MapTileSet.sks in Resources */,
 				6819068E1DBAA94600608D56 /* Assets.xcassets in Resources */,
 				6819068C1DBAA94600608D56 /* MainInterface.storyboard in Resources */,
+				686362E11DBE9E22001D5700 /* MapScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
