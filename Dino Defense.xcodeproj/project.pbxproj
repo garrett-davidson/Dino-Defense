@@ -15,6 +15,9 @@
 		6819068E1DBAA94600608D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6819068D1DBAA94600608D56 /* Assets.xcassets */; };
 		6819069A1DBAB0E900608D56 /* MapTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 681906991DBAB0E900608D56 /* MapTileSet.sks */; };
 		686362E11DBE9E22001D5700 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 686362E01DBE9E22001D5700 /* MapScene.sks */; };
+		6871C3621DC51B7B0048EBF3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6871C3611DC51B7B0048EBF3 /* GameScene.swift */; };
+		6871C3641DC520030048EBF3 /* MinionTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6871C3631DC520030048EBF3 /* MinionTileSet.sks */; };
+		6871C3651DC528FA0048EBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 681906791DBAA94600608D56 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,8 @@
 		6819068F1DBAA94600608D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		681906991DBAB0E900608D56 /* MapTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapTileSet.sks; sourceTree = "<group>"; };
 		686362E01DBE9E22001D5700 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
+		6871C3611DC51B7B0048EBF3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		6871C3631DC520030048EBF3 /* MinionTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MinionTileSet.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +111,14 @@
 		681906871DBAA94600608D56 /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				681906881DBAA94600608D56 /* MessagesViewController.swift */,
-				6819068A1DBAA94600608D56 /* MainInterface.storyboard */,
-				681906991DBAB0E900608D56 /* MapTileSet.sks */,
-				686362E01DBE9E22001D5700 /* MapScene.sks */,
 				6819068D1DBAA94600608D56 /* Assets.xcassets */,
+				6871C3611DC51B7B0048EBF3 /* GameScene.swift */,
 				6819068F1DBAA94600608D56 /* Info.plist */,
+				6819068A1DBAA94600608D56 /* MainInterface.storyboard */,
+				686362E01DBE9E22001D5700 /* MapScene.sks */,
+				681906991DBAB0E900608D56 /* MapTileSet.sks */,
+				681906881DBAA94600608D56 /* MessagesViewController.swift */,
+				6871C3631DC520030048EBF3 /* MinionTileSet.sks */,
 			);
 			path = MessagesExtension;
 			sourceTree = "<group>";
@@ -208,8 +215,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6819069A1DBAB0E900608D56 /* MapTileSet.sks in Resources */,
+				6871C3641DC520030048EBF3 /* MinionTileSet.sks in Resources */,
 				6819068E1DBAA94600608D56 /* Assets.xcassets in Resources */,
 				6819068C1DBAA94600608D56 /* MainInterface.storyboard in Resources */,
+				6871C3651DC528FA0048EBF3 /* Assets.xcassets in Resources */,
 				686362E11DBE9E22001D5700 /* MapScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6871C3621DC51B7B0048EBF3 /* GameScene.swift in Sources */,
 				681906891DBAA94600608D56 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

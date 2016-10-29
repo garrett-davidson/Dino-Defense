@@ -8,6 +8,7 @@
 
 import UIKit
 import Messages
+import SpriteKit
 
 class MessagesViewController: MSMessagesAppViewController {
     
@@ -16,9 +17,27 @@ class MessagesViewController: MSMessagesAppViewController {
 
         requestPresentationStyle(.expanded)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        loadGameScene()
+    }
+
+    func loadGameScene() {
+        if let view = self.view as! SKView? {
+            if let scene = SKScene(fileNamed: "MapScene") {
+                scene.scaleMode = .aspectFit
+
+                view.presentScene(scene)
+            }
+
+            view.ignoresSiblingOrder = true
+
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,5 +92,6 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
+
 
 }
