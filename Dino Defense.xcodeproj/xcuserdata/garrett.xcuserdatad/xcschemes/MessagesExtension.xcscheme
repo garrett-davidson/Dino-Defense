@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0810"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -67,16 +67,26 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "1"
+         BundleIdentifier = "com.apple.MobileSMS">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "681906751DBAA94600608D56"
-            BuildableName = "Dino Defense.app"
-            BlueprintName = "Dino Defense"
+            BlueprintIdentifier = "6819067F1DBAA94600608D56"
+            BuildableName = "MessagesExtension.appex"
+            BlueprintName = "MessagesExtension"
             ReferencedContainer = "container:Dino Defense.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6819067F1DBAA94600608D56"
+            BuildableName = "MessagesExtension.appex"
+            BlueprintName = "MessagesExtension"
+            ReferencedContainer = "container:Dino Defense.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

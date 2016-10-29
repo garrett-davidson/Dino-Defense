@@ -25,7 +25,7 @@
                                 <rect key="frame" x="143" y="249" width="34" height="30"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
-                                    <action selector="ClickStart:" destination="ObA-dk-sSI" eventType="touchUpInside" id="Ouo-VZ-Nc5"/>
+                                    <action selector="clickStart:" destination="ObA-dk-sSI" eventType="touchUpInside" id="VaG-IA-ij2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dino Defense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK1-uj-oWf">
@@ -47,7 +47,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
-                        <outlet property="StartGame" destination="oN8-hG-fPN" id="X41-0n-vCm"/>
+                        <outlet property="startGame" destination="oN8-hG-fPN" id="xLz-P8-ij7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>

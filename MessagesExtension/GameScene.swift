@@ -20,10 +20,9 @@ class GameScene: SKScene {
             return
         }
         self.mapNode = mapNode
-
-
     }
 
     override func didMove(to view: SKView) {
         loadMap()
     }
+}

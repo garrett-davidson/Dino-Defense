@@ -147,6 +147,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 681906921DBAA94600608D56 /* Build configuration list for PBXNativeTarget "MessagesExtension" */;
 			buildPhases = (
+				6871C3671DC5300A0048EBF3 /* ShellScript */,
 				6819067C1DBAA94600608D56 /* Sources */,
 				6819067D1DBAA94600608D56 /* Frameworks */,
 				6819067E1DBAA94600608D56 /* Resources */,
@@ -167,7 +168,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Garrett Davidson";
 				TargetAttributes = {
 					681906751DBAA94600608D56 = {
@@ -225,6 +226,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6871C3671DC5300A0048EBF3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    if [ -f .swiftlint.yml ]; then\n        swiftlint\n    else\n        echo \"warning: Could not find swiftlint configuration\"\n    fi\n\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6819067C1DBAA94600608D56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -275,6 +292,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -324,6 +342,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
