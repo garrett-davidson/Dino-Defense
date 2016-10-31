@@ -1,4 +1,4 @@
-//
+ //
 //  MessagesViewController.swift
 //  MessagesExtension
 //
@@ -16,7 +16,10 @@ class MessagesViewController: MSMessagesAppViewController {
     @IBAction func clickStart(_ sender: AnyObject) {
 
         requestPresentationStyle(.expanded)
+        gameScene.placeTestCantaloupe()
     }
+
+    var gameScene: GameScene!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +34,9 @@ class MessagesViewController: MSMessagesAppViewController {
             return
         }
 
-        if let scene = SKScene(fileNamed: "MapScene") {
-            scene.scaleMode = .aspectFit
+        if let scene = SKScene(fileNamed: "MapScene") as? GameScene {
+            self.gameScene = scene
+            scene.scaleMode = .fill
 
             view.presentScene(scene)
         }
@@ -94,6 +98,8 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called after the extension transitions to a new presentation style.
 
         // Use this method to finalize any behaviors associated with the change in presentation style.
+        gameScene.size = self.view.bounds.size
+        gameScene.placeTestCantaloupe()
     }
 
 }

@@ -12,12 +12,17 @@
 		681906861DBAA94600608D56 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681906851DBAA94600608D56 /* Messages.framework */; };
 		681906891DBAA94600608D56 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681906881DBAA94600608D56 /* MessagesViewController.swift */; };
 		6819068C1DBAA94600608D56 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6819068A1DBAA94600608D56 /* MainInterface.storyboard */; };
-		6819068E1DBAA94600608D56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6819068D1DBAA94600608D56 /* Assets.xcassets */; };
 		6819069A1DBAB0E900608D56 /* MapTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 681906991DBAB0E900608D56 /* MapTileSet.sks */; };
+		682873151DC54D140086788E /* MinionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682873141DC54D140086788E /* MinionEntity.swift */; };
+		682873171DC54E8F0086788E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682873161DC54E8F0086788E /* SpriteComponent.swift */; };
+		6828731D1DC553550086788E /* PathFollowingBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6828731C1DC553550086788E /* PathFollowingBehavior.swift */; };
+		6828731F1DC555720086788E /* MoveComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6828731E1DC555720086788E /* MoveComponent.swift */; };
 		686362E11DBE9E22001D5700 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 686362E01DBE9E22001D5700 /* MapScene.sks */; };
+		686F0CA91DC57A4C0023CA7A /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686F0CA81DC57A4C0023CA7A /* EntityManager.swift */; };
 		6871C3621DC51B7B0048EBF3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6871C3611DC51B7B0048EBF3 /* GameScene.swift */; };
 		6871C3641DC520030048EBF3 /* MinionTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6871C3631DC520030048EBF3 /* MinionTileSet.sks */; };
 		6871C3651DC528FA0048EBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 681906791DBAA94600608D56 /* Assets.xcassets */; };
+		68E3575B1DC57CA100046460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E3575A1DC57CA100046460 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +57,17 @@
 		681906851DBAA94600608D56 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		681906881DBAA94600608D56 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		6819068B1DBAA94600608D56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		6819068D1DBAA94600608D56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6819068F1DBAA94600608D56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		681906991DBAB0E900608D56 /* MapTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapTileSet.sks; sourceTree = "<group>"; };
+		682873141DC54D140086788E /* MinionEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinionEntity.swift; sourceTree = "<group>"; };
+		682873161DC54E8F0086788E /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		6828731C1DC553550086788E /* PathFollowingBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathFollowingBehavior.swift; sourceTree = "<group>"; };
+		6828731E1DC555720086788E /* MoveComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveComponent.swift; sourceTree = "<group>"; };
 		686362E01DBE9E22001D5700 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
+		686F0CA81DC57A4C0023CA7A /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		6871C3611DC51B7B0048EBF3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6871C3631DC520030048EBF3 /* MinionTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MinionTileSet.sks; sourceTree = "<group>"; };
+		68E3575A1DC57CA100046460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,16 +121,37 @@
 		681906871DBAA94600608D56 /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
-				6819068D1DBAA94600608D56 /* Assets.xcassets */,
-				6871C3611DC51B7B0048EBF3 /* GameScene.swift */,
+				68E3575A1DC57CA100046460 /* Assets.xcassets */,
+				6828731A1DC551920086788E /* Components */,
+				6828731B1DC5519F0086788E /* Entities */,
 				6819068F1DBAA94600608D56 /* Info.plist */,
 				6819068A1DBAA94600608D56 /* MainInterface.storyboard */,
 				686362E01DBE9E22001D5700 /* MapScene.sks */,
+				6871C3611DC51B7B0048EBF3 /* GameScene.swift */,
 				681906991DBAB0E900608D56 /* MapTileSet.sks */,
 				681906881DBAA94600608D56 /* MessagesViewController.swift */,
 				6871C3631DC520030048EBF3 /* MinionTileSet.sks */,
 			);
 			path = MessagesExtension;
+			sourceTree = "<group>";
+		};
+		6828731A1DC551920086788E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6828731E1DC555720086788E /* MoveComponent.swift */,
+				6828731C1DC553550086788E /* PathFollowingBehavior.swift */,
+				682873161DC54E8F0086788E /* SpriteComponent.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		6828731B1DC5519F0086788E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				686F0CA81DC57A4C0023CA7A /* EntityManager.swift */,
+				682873141DC54D140086788E /* MinionEntity.swift */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,9 +248,9 @@
 			files = (
 				6819069A1DBAB0E900608D56 /* MapTileSet.sks in Resources */,
 				6871C3641DC520030048EBF3 /* MinionTileSet.sks in Resources */,
-				6819068E1DBAA94600608D56 /* Assets.xcassets in Resources */,
 				6819068C1DBAA94600608D56 /* MainInterface.storyboard in Resources */,
 				6871C3651DC528FA0048EBF3 /* Assets.xcassets in Resources */,
+				68E3575B1DC57CA100046460 /* Assets.xcassets in Resources */,
 				686362E11DBE9E22001D5700 /* MapScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				682873171DC54E8F0086788E /* SpriteComponent.swift in Sources */,
+				686F0CA91DC57A4C0023CA7A /* EntityManager.swift in Sources */,
+				682873151DC54D140086788E /* MinionEntity.swift in Sources */,
+				6828731F1DC555720086788E /* MoveComponent.swift in Sources */,
+				6828731D1DC553550086788E /* PathFollowingBehavior.swift in Sources */,
 				6871C3621DC51B7B0048EBF3 /* GameScene.swift in Sources */,
 				681906891DBAA94600608D56 /* MessagesViewController.swift in Sources */,
 			);
