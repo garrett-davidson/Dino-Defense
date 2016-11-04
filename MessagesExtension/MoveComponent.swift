@@ -23,7 +23,9 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
         self.maxSpeed = fabs(maxSpeed)
         self.maxAcceleration = maxAcceleration
         self.radius = radius
-        self.mass = 0.01
+        self.mass = 0.1
+
+        behavior = PathFollowingBehavior(path: path, forward: forward)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -44,13 +46,6 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
             return
         }
         spriteComponent.node.position = position.toCGPoint()
-        print("At position \(position)")
-    }
-
-    override func update(deltaTime seconds: TimeInterval) {
-        super.update(deltaTime: seconds)
-
-        behavior = PathFollowingBehavior(path: path, forward: forward)
     }
 }
 

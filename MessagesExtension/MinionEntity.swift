@@ -16,7 +16,7 @@ class Minion: GKEntity {
 
         let spriteComponent = SpriteComponent(texture: SKTexture(imageNamed: imageName))
         addComponent(spriteComponent)
-        addComponent(MoveComponent(path: path, maxSpeed: 50, maxAcceleration: 5, radius: 5))
+        addComponent(MoveComponent(path: path, maxSpeed: 50, maxAcceleration: 50, radius: spriteComponent.radius))
     }
 
     required init?(coder aDecoder: NSCoder) {
