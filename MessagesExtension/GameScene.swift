@@ -46,7 +46,7 @@ class GameScene: SKScene {
             return
         }
 
-        path = GKPath(graphNodes: pathNodes, radius: 1)
+        path = GKPath(graphNodes: pathNodes, radius: 5)
 
         draw(path: path)
     }
@@ -91,8 +91,7 @@ class GameScene: SKScene {
             for j in 0..<Int(gridHeight) {
                 if mapNode.tileGroup(atColumn: i, row: j) == nil {
                     let points = pointsForTile(atColumn: i, row: j)
-                    obstacles.append(GKPolygonObstacle(__points: UnsafeMutablePointer(mutating: points), count: points.count))
-//                    obstacles.append(GKPolygonObstacle(points: pointsForTile(atColumn: i, row: j)))
+                    obstacles.append(GKPolygonObstacle(points: pointsForTile(atColumn: i, row: j)))
                 }
             }
         }
@@ -107,7 +106,7 @@ class GameScene: SKScene {
         graph.addObstacles(obstacles)
         print("Graph has \(graph.obstacles.count) obstacles")
 
-        graph.triangulationMode = .vertices
+        graph.triangulationMode = [.centers, .edgeMidpoints]
         graph.triangulate()
         print("Graph has \(graph.obstacles.count) obstacles")
 

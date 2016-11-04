@@ -36,7 +36,7 @@ class MessagesViewController: MSMessagesAppViewController {
 
         if let scene = SKScene(fileNamed: "MapScene") as? GameScene {
             self.gameScene = scene
-            scene.scaleMode = .fill
+            scene.scaleMode = .aspectFit
 
             view.presentScene(scene)
         }
@@ -98,7 +98,7 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called after the extension transitions to a new presentation style.
 
         // Use this method to finalize any behaviors associated with the change in presentation style.
-        gameScene.size = self.view.bounds.size
+//        gameScene.size = self.view.bounds.size
         gameScene.placeTestCantaloupe()
     }
 
