@@ -22,6 +22,7 @@
 		6871C3621DC51B7B0048EBF3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6871C3611DC51B7B0048EBF3 /* GameScene.swift */; };
 		6871C3641DC520030048EBF3 /* MinionTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6871C3631DC520030048EBF3 /* MinionTileSet.sks */; };
 		6871C3651DC528FA0048EBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 681906791DBAA94600608D56 /* Assets.xcassets */; };
+		689055261DD0E8DA0003272B /* DebugOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689055251DD0E8DA0003272B /* DebugOverlay.swift */; };
 		68E3575B1DC57CA100046460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E3575A1DC57CA100046460 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		686F0CA81DC57A4C0023CA7A /* EntityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
 		6871C3611DC51B7B0048EBF3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6871C3631DC520030048EBF3 /* MinionTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MinionTileSet.sks; sourceTree = "<group>"; };
+		689055251DD0E8DA0003272B /* DebugOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugOverlay.swift; sourceTree = "<group>"; };
 		68E3575A1DC57CA100046460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,11 +125,12 @@
 			children = (
 				68E3575A1DC57CA100046460 /* Assets.xcassets */,
 				6828731A1DC551920086788E /* Components */,
+				689055251DD0E8DA0003272B /* DebugOverlay.swift */,
 				6828731B1DC5519F0086788E /* Entities */,
+				6871C3611DC51B7B0048EBF3 /* GameScene.swift */,
 				6819068F1DBAA94600608D56 /* Info.plist */,
 				6819068A1DBAA94600608D56 /* MainInterface.storyboard */,
 				686362E01DBE9E22001D5700 /* MapScene.sks */,
-				6871C3611DC51B7B0048EBF3 /* GameScene.swift */,
 				681906991DBAB0E900608D56 /* MapTileSet.sks */,
 				681906881DBAA94600608D56 /* MessagesViewController.swift */,
 				6871C3631DC520030048EBF3 /* MinionTileSet.sks */,
@@ -284,6 +287,7 @@
 				6828731F1DC555720086788E /* MoveComponent.swift in Sources */,
 				6828731D1DC553550086788E /* PathFollowingBehavior.swift in Sources */,
 				6871C3621DC51B7B0048EBF3 /* GameScene.swift in Sources */,
+				689055261DD0E8DA0003272B /* DebugOverlay.swift in Sources */,
 				681906891DBAA94600608D56 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
