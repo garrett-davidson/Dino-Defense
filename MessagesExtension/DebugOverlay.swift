@@ -100,4 +100,61 @@ class DebugOverlay {
         shape.alpha = 0.5
         scene.addChild(shape)
     }
+
+    var placabilityMatrixLayers: [CAShapeLayer]?
+    func drawPlacabilityMatrix(dx: CGFloat = 18.75, dy: CGFloat = 18.75, radius: CGFloat = 3, color: UIColor = .blue) {
+        guard let scene = scene as? GameScene else {
+            print("Cannot draw matrix on non-GameScene")
+            return
+        }
+
+        let width = min(scene.view!.bounds.size.width, scene.view!.bounds.size.height)
+
+        placabilityMatrixLayers = []
+        let size = CGSize(width: radius * 2, height: radius * 2)
+        let currentPosition = scene.view!.convert(CGPoint(x: -scene.mapNode.mapSize.width/2, y: scene.mapNode.mapSize.height/2), from: scene)
+
+        print(width)
+        print(size)
+        print(currentPosition)
+        let tileWidth = width / CGFloat(scene.gridWidth)
+        let tileHeight = width / CGFloat(scene.gridHeight)
+        for x in stride(from: currentPosition.x - radius + dx, through: width + currentPosition.x + radius, by: dx) {
+            for y in stride(from: currentPosition.y - radius + dy, through: width + currentPosition.y + radius, by: dy) {
+                let node = CAShapeLayer()
+
+                let center = CGPoint(x: x, y: y)
+//                let convertedCenter = scene.convert(center, to: scene.mapNode)
+//                let convertedCenter2 = scene.positionFromPoint(point: center)
+                let convertedCenter3 = CGPoint(x: center.x + radius - currentPosition.x, y: center.y + radius - currentPosition.y)
+                let xCoordinate = Int(convertedCenter3.x / tileWidth)
+                let yCoordinate = Int(scene.gridHeight) - Int(ceil(convertedCenter3.y / tileHeight))
+                print(center)
+                print(convertedCenter3)
+                print(xCoordinate, yCoordinate)
+                let a = scene.mapNode.tileGroup(atColumn: xCoordinate, row: yCoordinate) == nil
+                print("Road exists: ", a)
+//                if scene.canPlaceTowerAt(point: convertedCenter3) {
+                if a {
+                    node.path = UIBezierPath(ovalIn: CGRect(origin: center, size: size)).cgPath
+                    node.fillColor = color.cgColor
+
+                    placabilityMatrixLayers!.append(node)
+                    scene.view?.layer.addSublayer(node)
+                }
+            }
+        }
+    }
+
+    func clearPlacabilityMatrix() {
+        guard placabilityMatrixLayers != nil else {
+            return
+        }
+
+        placabilityMatrixLayers?.forEach({ (layer) in
+            layer.removeFromSuperlayer()
+        })
+
+        placabilityMatrixLayers = nil
+    }
 }

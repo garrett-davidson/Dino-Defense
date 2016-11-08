@@ -24,8 +24,6 @@ class MessagesViewController: MSMessagesAppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
-        loadGameScene()
     }
 
     func loadGameScene() {
@@ -99,7 +97,10 @@ class MessagesViewController: MSMessagesAppViewController {
 
         // Use this method to finalize any behaviors associated with the change in presentation style.
 //        gameScene.size = self.view.bounds.size
-        gameScene.placeTestCantaloupe()
+        if presentationStyle == .expanded {
+            loadGameScene()
+            gameScene.placeTestCantaloupe()
+        }
     }
 
 }

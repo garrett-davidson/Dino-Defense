@@ -66,6 +66,8 @@ class GameScene: SKScene {
 
         if debugging {
             debugOverlay.draw(path)
+
+            debugOverlay.drawPlacabilityMatrix()
         }
     }
 
@@ -152,6 +154,43 @@ class GameScene: SKScene {
 
         entityManager.update(deltaTime: currentTime - lastTime)
         lastTime = currentTime
+    }
+
+    func canPlaceTowerAt(point: CGPoint) -> Bool {
+        if roadExistsAt(point: point) {
+            print("Road")
+            return false
+        }
+
+        print("No road")
+        return true
+    }
+
+    func roadExistsAt(point: CGPoint) -> Bool {
+        guard let coordinates = gridCoordinatesFor(point: point) else {
+            return false
+        }
+
+        return mapNode.tileGroup(atColumn: coordinates.0, row: coordinates.1) != nil
+    }
+
+    func gridCoordinatesFor(point: CGPoint) -> (Int, Int)? {
+
+        let pointX = point.x
+        let pointY = point.y
+
+        guard pointX >= 0, pointX <= mapNode.mapSize.width else {
+            return nil
+        }
+
+        guard pointY >= 0, pointY <= mapNode.mapSize.height else {
+            return nil
+        }
+
+        let x = Int(pointX / mapNode.tileSize.width)
+        let y = Int(gridHeight) - Int(pointY / mapNode.tileSize.height) - 1
+
+        return (x, y)
     }
 }
 
