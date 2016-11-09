@@ -23,7 +23,7 @@ class MoveComponent: GKAgent2D, GKAgentDelegate {
         self.maxSpeed = fabs(maxSpeed)
         self.maxAcceleration = maxAcceleration
         self.radius = radius
-        self.mass = 0.1
+        self.mass = 1
 
         behavior = PathFollowingBehavior(path: path, forward: forward)
     }

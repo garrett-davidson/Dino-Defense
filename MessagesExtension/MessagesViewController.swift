@@ -13,6 +13,7 @@ import SpriteKit
 class MessagesViewController: MSMessagesAppViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var newImageView = UIImageView()
 
+    @IBOutlet weak var towerMenuView: UIView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var gameView: SKView!
@@ -21,10 +22,7 @@ class MessagesViewController: MSMessagesAppViewController, UICollectionViewDeleg
     @IBAction func clickStart(_ sender: AnyObject) {
 
         requestPresentationStyle(.expanded)
-        gameScene.placeTestCantaloupe()
-        collection.isHidden = false
-        gameView.isHidden = false
-        gameScene.isHidden = false
+
     }
 
     var gameScene: GameScene!
@@ -32,8 +30,6 @@ class MessagesViewController: MSMessagesAppViewController, UICollectionViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
-        loadGameScene()
     }
 
     func loadGameScene() {
@@ -103,7 +99,14 @@ class MessagesViewController: MSMessagesAppViewController, UICollectionViewDeleg
         // Called after the extension transitions to a new presentation style.
 
         // Use this method to finalize any behaviors associated with the change in presentation style.
-        gameScene.placeTestCantaloupe()
+        if presentationStyle == .expanded {
+            loadGameScene()
+            collection.isHidden = false
+            towerMenuView.isHidden = false
+            gameView.isHidden = false
+            gameScene.isHidden = false
+            gameScene.placeTestCantaloupe()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

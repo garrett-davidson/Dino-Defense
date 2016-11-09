@@ -12,13 +12,29 @@ import GameplayKit
 
 class GameScene: SKScene {
 
+    let debugging = true
+
     var mapNode: SKTileMapNode!
     var entityManager: EntityManager!
     var startNode: GKGraphNode2D!
     var endNode: GKGraphNode2D!
 
+    var debugOverlay: DebugOverlay!
+
     let gridWidth: Int32 = 10
     let gridHeight: Int32 = 10
+
+    override init() {
+        super.init()
+
+        self.debugOverlay = debugging ? DebugOverlay(scene: self) : nil
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        self.debugOverlay = debugging ? DebugOverlay(scene: self) : nil
+    }
 
     func loadMap() {
         guard let mapNode = childNode(withName: "Map") as? SKTileMapNode else {
@@ -48,7 +64,11 @@ class GameScene: SKScene {
 
         path = GKPath(graphNodes: pathNodes, radius: 5)
 
-        draw(path: path)
+        if debugging {
+            debugOverlay.draw(path)
+
+            debugOverlay.drawPlacabilityMatrix()
+        }
     }
 
     func placeTestCantaloupe() {
@@ -90,7 +110,6 @@ class GameScene: SKScene {
         for i in 0..<Int(gridWidth) {
             for j in 0..<Int(gridHeight) {
                 if mapNode.tileGroup(atColumn: i, row: j) == nil {
-                    let points = pointsForTile(atColumn: i, row: j)
                     obstacles.append(GKPolygonObstacle(points: pointsForTile(atColumn: i, row: j)))
                 }
             }
@@ -113,7 +132,9 @@ class GameScene: SKScene {
         graph.connectUsingObstacles(node: startNode)
         graph.connectUsingObstacles(node: endNode)
 
-        draw(meshGraph: graph)
+        if debugging {
+            debugOverlay.draw(graph)
+        }
 
         return graph
     }
@@ -135,88 +156,41 @@ class GameScene: SKScene {
         lastTime = currentTime
     }
 
-    func draw(path: GKPath) {
-        var points = [float2]()
-        for i in 0..<path.numPoints {
-            points.append(path.float2(at: i))
+    func canPlaceTowerAt(point: CGPoint) -> Bool {
+        if roadExistsAt(point: point) {
+            print("Road")
+            return false
         }
-        let cgPoints = points.map(CGPoint.init)
-        let node = SKShapeNode(points: UnsafeMutablePointer(mutating: cgPoints), count: cgPoints.count)
 
-        node.strokeColor = .black
-        node.lineWidth = CGFloat(path.radius)
-        node.alpha = 0.5
-
-        self.addChild(node)
+        print("No road")
+        return true
     }
 
-    func draw(obstacleGraph: GKObstacleGraph<GKGraphNode2D>) {
-
-        let bufferRadius = CGFloat(obstacleGraph.bufferRadius)
-        obstacleGraph.obstacles.forEach { (obstacle) in
-            draw(obstacle: obstacle, bufferRadius: bufferRadius)
+    func roadExistsAt(point: CGPoint) -> Bool {
+        guard let coordinates = gridCoordinatesFor(point: point) else {
+            return false
         }
 
-        obstacleGraph.nodes?.forEach({ (node) in
-            if let node = node as? GKGraphNode2D {
-                draw(graphNode: node)
-            }
-        })
+        return mapNode.tileGroup(atColumn: coordinates.0, row: coordinates.1) != nil
     }
 
-    func draw(meshGraph: GKMeshGraph<GKGraphNode2D>) {
-        for i in 0..<meshGraph.triangleCount {
-            draw(triangle: meshGraph.triangle(at: i))
+    func gridCoordinatesFor(point: CGPoint) -> (Int, Int)? {
+
+        let pointX = point.x
+        let pointY = point.y
+
+        guard pointX >= 0, pointX <= mapNode.mapSize.width else {
+            return nil
         }
 
-        let bufferRadius = CGFloat(meshGraph.bufferRadius)
-        meshGraph.obstacles.forEach { (obstacle) in
-            draw(obstacle: obstacle, bufferRadius: bufferRadius)
+        guard pointY >= 0, pointY <= mapNode.mapSize.height else {
+            return nil
         }
 
-    }
+        let x = Int(pointX / mapNode.tileSize.width)
+        let y = Int(gridHeight) - Int(pointY / mapNode.tileSize.height) - 1
 
-    func draw(triangle: GKTriangle) {
-        let points = [CGPoint(triangle.points.0), CGPoint(triangle.points.1), CGPoint(triangle.points.2), CGPoint(triangle.points.0)]
-        let node = SKShapeNode(points: UnsafeMutablePointer(mutating: points), count: 4)
-
-        node.fillColor = .green
-        node.strokeColor = .green
-        node.alpha = 0.5
-
-        self.addChild(node)
-    }
-
-    func draw(obstacle: GKPolygonObstacle, bufferRadius: CGFloat = 0) {
-        let vertexCount = obstacle.vertexCount
-        guard vertexCount > 0 else {
-            return
-        }
-
-        var points = [float2]()
-        for i in 0..<vertexCount {
-            points.append(obstacle.vertex(at: i))
-        }
-        points.append(points.first!) // Adds a line to close the object
-
-        let cgPoints = points.map(CGPoint.init)
-        let node = SKShapeNode(points: UnsafeMutablePointer(mutating: cgPoints), count: cgPoints.count)
-
-        node.strokeColor = .red
-        node.fillColor = .red
-        node.alpha = 0.5
-        node.lineWidth = bufferRadius
-
-        self.addChild(node)
-    }
-
-    func draw(graphNode: GKGraphNode2D, radius: CGFloat = 2, color: UIColor = .blue) {
-        let shape = SKShapeNode(circleOfRadius: radius)
-        shape.position = graphNode.position.toCGPoint()
-        shape.strokeColor = color
-        shape.fillColor = color
-        shape.alpha = 0.5
-        self.addChild(shape)
+        return (x, y)
     }
 }
 
