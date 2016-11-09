@@ -10,13 +10,21 @@ import UIKit
 import Messages
 import SpriteKit
 
-class MessagesViewController: MSMessagesAppViewController {
+class MessagesViewController: MSMessagesAppViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    var newImageView = UIImageView()
 
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var gameView: SKView!
+    @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var startGame: UIButton!
     @IBAction func clickStart(_ sender: AnyObject) {
 
         requestPresentationStyle(.expanded)
         gameScene.placeTestCantaloupe()
+        collection.isHidden = false
+        gameView.isHidden = false
+        gameScene.isHidden = false
     }
 
     var gameScene: GameScene!
@@ -29,22 +37,19 @@ class MessagesViewController: MSMessagesAppViewController {
     }
 
     func loadGameScene() {
-        guard let view = self.view as? SKView else {
-            print("View isn't SKView")
-            return
-        }
 
         if let scene = SKScene(fileNamed: "MapScene") as? GameScene {
             self.gameScene = scene
-            scene.scaleMode = .aspectFit
+            scene.scaleMode = .fill
 
-            view.presentScene(scene)
+            gameView.presentScene(scene)
+            gameView.isHidden = true
         }
 
-        view.ignoresSiblingOrder = true
+        gameView.ignoresSiblingOrder = true
 
-        view.showsFPS = true
-        view.showsNodeCount = true
+        gameView.showsFPS = true
+        gameView.showsNodeCount = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,8 +103,63 @@ class MessagesViewController: MSMessagesAppViewController {
         // Called after the extension transitions to a new presentation style.
 
         // Use this method to finalize any behaviors associated with the change in presentation style.
-//        gameScene.size = self.view.bounds.size
         gameScene.placeTestCantaloupe()
     }
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collection.dequeueReusableCell(withReuseIdentifier: "TowerCollectionViewCell", for: indexPath) as? TowerCollectionViewCell else {
+            fatalError("could not find the cell of correct type.")
+        }
+
+        guard let image = UIImage(named: "Cantaloupe") else {
+
+            print("no image")
+            return cell
+        }
+        cell.towerImage.image = image
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        collectionView.isUserInteractionEnabled = false
+        guard let tower = collection.cellForItem(at: indexPath) as? TowerCollectionViewCell else {
+            fatalError("could not find the cell of correct type.")
+        }
+
+        let image = tower.towerImage.image
+
+        newImageView = UIImageView(image: image)
+        newImageView.isUserInteractionEnabled = true
+        newImageView.isMultipleTouchEnabled = true
+        newImageView.isExclusiveTouch = true
+        newImageView.contentMode = .scaleToFill
+
+        let panGesture = UIPanGestureRecognizer(target: self, action:#selector(myPanAction))
+        newImageView.addGestureRecognizer(panGesture)
+        newImageView.frame = self.view.bounds
+        newImageView.frame.size.width = 32
+        newImageView.frame.size.height = 32
+        newImageView.center.y = self.view.frame.height/2
+        newImageView.center.x = self.view.frame.width/2
+        self.view.addSubview(newImageView)
+        self.view.bringSubview(toFront: newImageView)
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("clicked")
+
+    }
+
+    func myPanAction(recognizer: UIPanGestureRecognizer) {
+        let translation = recognizer.translation(in: self.view)
+        if let myView = recognizer.view {
+            myView.center = CGPoint(x: myView.center.x + translation.x, y: myView.center.y + translation.y)
+        }
+        recognizer.setTranslation(CGPoint(x: 0, y: 0), in: self.view)
+
+    }
 }

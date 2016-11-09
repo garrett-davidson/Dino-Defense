@@ -23,6 +23,7 @@
 		6871C3641DC520030048EBF3 /* MinionTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6871C3631DC520030048EBF3 /* MinionTileSet.sks */; };
 		6871C3651DC528FA0048EBF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 681906791DBAA94600608D56 /* Assets.xcassets */; };
 		68E3575B1DC57CA100046460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68E3575A1DC57CA100046460 /* Assets.xcassets */; };
+		7246C78C1DD13DCE00FF1055 /* TowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246C78B1DD13DCE00FF1055 /* TowerCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		6871C3611DC51B7B0048EBF3 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		6871C3631DC520030048EBF3 /* MinionTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MinionTileSet.sks; sourceTree = "<group>"; };
 		68E3575A1DC57CA100046460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7246C78B1DD13DCE00FF1055 /* TowerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TowerCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				6819068A1DBAA94600608D56 /* MainInterface.storyboard */,
 				686362E01DBE9E22001D5700 /* MapScene.sks */,
 				6871C3611DC51B7B0048EBF3 /* GameScene.swift */,
+				7246C78B1DD13DCE00FF1055 /* TowerCollectionViewCell.swift */,
 				681906991DBAB0E900608D56 /* MapTileSet.sks */,
 				681906881DBAA94600608D56 /* MessagesViewController.swift */,
 				6871C3631DC520030048EBF3 /* MinionTileSet.sks */,
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7246C78C1DD13DCE00FF1055 /* TowerCollectionViewCell.swift in Sources */,
 				682873171DC54E8F0086788E /* SpriteComponent.swift in Sources */,
 				686F0CA91DC57A4C0023CA7A /* EntityManager.swift in Sources */,
 				682873151DC54D140086788E /* MinionEntity.swift in Sources */,
